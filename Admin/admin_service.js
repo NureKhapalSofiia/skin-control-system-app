@@ -1,5 +1,5 @@
 const { User, Patient, Doctor, Products, UsedProducts, UsedProductsItem, dbConfig } = require('../models');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs'); // Замена bcrypt на bcryptjs
 
 // Додавання нового користувача
 const addUser = async (email, password, role) => {

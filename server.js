@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Sequelize, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs'); 
 
 // Регистрация маршрутов
 const patientController = require('./Patient/patient_controller');

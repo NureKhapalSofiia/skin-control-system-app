@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs'); 
 
 // Подключение к базе данных
 const dbConfig = new Sequelize('app', 'test_user', 'test1234', {
