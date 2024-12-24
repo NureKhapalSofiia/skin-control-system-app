@@ -3,6 +3,16 @@ const { saveSkinAnalysisData } = require('./iot_service');
 
 const IoTRouter = express.Router();
 
+// Дані для визначення типів шкіри
+const skinTypeConfig = {
+    minDryTemperature: 10,
+    maxDryTemperature: 30,
+    minOilyMoisture: 60,
+    maxOilyMoisture: 80,
+    minNormalMoisture: 40,
+    maxNormalMoisture: 60,
+};
+
 // Обработка данных от устройства
 IoTRouter.post('/data', async (req, res) => {
     try {
@@ -19,6 +29,10 @@ IoTRouter.post('/data', async (req, res) => {
         console.error('Помилка збереження даних:', error.message);
         res.status(500).json({ message: 'Помилка сервера' });
     }
+});
+
+IoTRouter.get('/skin-type-config', (req, res) => {
+    res.json(skinTypeConfig);
 });
 
 module.exports = IoTRouter;
